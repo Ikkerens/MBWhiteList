@@ -13,7 +13,7 @@ public final class LoginListener implements Listener {
 
     @EventHandler
     public void onLogin( PlayerLoginEvent event ) {
-        if ( this.config.isWhitelisted( event.getPlayer().getName() ) )
+        if ( !this.config.isWhitelisted( event.getPlayer().getName() ) )
             event.setCancelled( true, "You are not whitelisted on this server." );
     }
 }
