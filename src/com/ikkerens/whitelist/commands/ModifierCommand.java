@@ -1,13 +1,14 @@
 package com.ikkerens.whitelist.commands;
 
 import com.ikkerens.whitelist.Config;
+
 import com.mbserver.api.CommandSender;
 import com.mbserver.api.MBServerPlugin;
 
 public class ModifierCommand implements SpecificCommand {
 
-    public void execute( MBServerPlugin plugin, CommandSender sender, Command cmd, String[] args ) {
-        Config config = plugin.getConfig();
+    public void execute( final MBServerPlugin plugin, final CommandSender sender, final Command cmd, final String[] args ) {
+        final Config config = plugin.getConfig();
 
         switch( cmd ) {
             case ADD:

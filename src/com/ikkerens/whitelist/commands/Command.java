@@ -9,15 +9,15 @@ public enum Command {
     private SpecificCommand handler;
     private String[]        args;
 
-    private Command( SpecificCommand handler, String... args ) {
+    private Command( final SpecificCommand handler, final String... args ) {
         this.handler = handler;
         this.args = args;
     }
 
-    public static Command match( String cmd ) {
+    public static Command match( final String cmd ) {
         try {
             return Command.valueOf( cmd.toUpperCase() );
-        } catch ( IllegalArgumentException e ) {
+        } catch ( final IllegalArgumentException e ) {
             return null;
         }
     }

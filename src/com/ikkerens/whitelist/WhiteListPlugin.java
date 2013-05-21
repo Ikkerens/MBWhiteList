@@ -8,7 +8,7 @@ public final class WhiteListPlugin extends MBServerPlugin {
 
     @Override
     public void onEnable() {
-        Config config = this.getConfig();
+        final Config config = this.getConfig();
         config.install( this );
 
         this.getPluginManager().registerEventHandler( new LoginListener( config ) );

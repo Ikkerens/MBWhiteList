@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public final class Config {
-    private boolean             installed;
-    private boolean             enabled;
-    private ArrayList< String > whitelist;
+    private boolean                   installed;
+    private boolean                   enabled;
+    private final ArrayList< String > whitelist;
 
     public Config() {
         this.installed = false;
@@ -16,9 +16,9 @@ public final class Config {
         this.whitelist = new ArrayList< String >();
     }
 
-    void install( WhiteListPlugin plugin ) {
+    void install( final WhiteListPlugin plugin ) {
         if ( !this.installed ) {
-            File oldWl = new File( "whitelist.txt" );
+            final File oldWl = new File( "whitelist.txt" );
             if ( !oldWl.exists() )
                 return;
 
@@ -33,7 +33,7 @@ public final class Config {
                 }
 
                 plugin.getLogger().info( String.format( "Imported %s whitelisted accounts from old version.", count ) );
-            } catch ( FileNotFoundException e ) {
+            } catch ( final FileNotFoundException e ) {
             } finally {
                 this.installed = true;
                 if ( scanner != null )
@@ -42,19 +42,19 @@ public final class Config {
         }
     }
 
-    public void setEnabled( boolean enabled ) {
+    public void setEnabled( final boolean enabled ) {
         this.enabled = enabled;
     }
 
-    public void addToWhitelist( String player ) {
+    public void addToWhitelist( final String player ) {
         this.whitelist.add( player.toLowerCase() );
     }
 
-    public void removeFromWhitelist( String player ) {
+    public void removeFromWhitelist( final String player ) {
         this.whitelist.remove( player.toLowerCase() );
     }
 
-    public boolean isWhitelisted( String player ) {
+    public boolean isWhitelisted( final String player ) {
         if ( !this.enabled )
             return true;
 
