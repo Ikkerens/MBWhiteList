@@ -9,7 +9,7 @@ public class ModifierCommand implements SpecificCommand {
 
     public void execute( final MBServerPlugin plugin, final CommandSender sender, final Command cmd, final String[] args ) {
         final Config config = plugin.getConfig();
-        
+
         String message;
 
         switch( cmd ) {
