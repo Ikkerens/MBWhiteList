@@ -9,12 +9,16 @@ public class ModifierCommand implements SpecificCommand {
 
     public void execute( final MBServerPlugin plugin, final CommandSender sender, final Command cmd, final String[] args ) {
         final Config config = plugin.getConfig();
+        
+        String message;
 
         switch( cmd ) {
             case ADD:
+                message = "added to";
                 config.addToWhitelist( args[ 0 ] );
                 break;
             case REMOVE:
+                message = "removed from";
                 config.removeFromWhitelist( args[ 0 ] );
                 break;
             default:
@@ -22,7 +26,6 @@ public class ModifierCommand implements SpecificCommand {
         }
 
         plugin.saveConfig();
-        sender.sendMessage( String.format( "Player %s was %sd from the whitelist.", args[ 0 ], cmd.name().toLowerCase() ) );
+        sender.sendMessage( String.format( "Player %s was %s the whitelist.", args[ 0 ], message ) );
     }
-
 }
