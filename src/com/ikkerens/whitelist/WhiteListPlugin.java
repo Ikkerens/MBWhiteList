@@ -3,7 +3,7 @@ package com.ikkerens.whitelist;
 import com.mbserver.api.MBServerPlugin;
 import com.mbserver.api.Manifest;
 
-@Manifest( name = "MBWhiteList", authors = "Ikkerens", config = Config.class )
+@Manifest( name = "MBWhiteList", authors = "Ikkerens", config = Config.class, isPubliclyForbidden = true )
 public final class WhiteListPlugin extends MBServerPlugin {
 
     @Override
